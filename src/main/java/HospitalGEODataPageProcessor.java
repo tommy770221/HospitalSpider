@@ -20,7 +20,8 @@ public class HospitalGEODataPageProcessor implements PageProcessor {
         OOSpider.create(Site.me()
                         .setUserAgent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.57 Safari/537.36")
                 , new JsonFilePageModelPipeline("I:\\醫療相關資料\\crawlerGeoData"), HospitalGeoData.class)
-                .addUrl("http://twypage.com/c4-%e4%b8%8d%e5%88%86%e7%a7%91%e8%a8%ba%e6%89%80.html")
+                .addUrl("http://twypage.com/c3-%e8%a8%ba%e6%89%80.html" +
+                        "")
                 .thread(5).run();
     }
 
