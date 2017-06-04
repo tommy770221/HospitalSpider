@@ -31,10 +31,7 @@ public class ConvertGeoData {
 
 
         for (File file : listOfFiles) {
-            if(j>100){
-                break;
-            }
-            j++;
+
                 try {
                     ObjectMapper mapper = new ObjectMapper();
                     HospitalGeoResponse hospitalGeoData = mapper.readValue(file, HospitalGeoResponse.class);
@@ -43,6 +40,7 @@ public class ConvertGeoData {
                     hospitalGeoData.setCategory(hospitalGeoData.getCategory().replace("科　　別： ", ""));
                     hospitalGeoData.setHosNo(hospitalGeoData.getHosNo().replace("編　　號： ", ""));
                     hospitalGeoData.setPhone(hospitalGeoData.getPhone().replace("電　　話： ", ""));
+                    hospitalGeoData.setServiceItem(hospitalGeoData.getServiceItem().replace("服務項目： ",""));
                     doubles.add(Double.parseDouble(hospitalGeoData.getLongitude()));
                     doubles.add(Double.parseDouble(hospitalGeoData.getLatitude()));
                     Location location=new Location();
@@ -94,6 +92,7 @@ public class ConvertGeoData {
                     hospitalGeoData.setCategory(hospitalGeoData.getCategory().replace("科　　別： ", ""));
                     hospitalGeoData.setHosNo(hospitalGeoData.getHosNo().replace("編　　號： ", ""));
                     hospitalGeoData.setPhone(hospitalGeoData.getPhone().replace("電　　話： ", ""));
+                    hospitalGeoData.setServiceItem(hospitalGeoData.getServiceItem().replace("服務項目： ",""));
                     doubles.add(Double.parseDouble(hospitalGeoData.getLongitude()));
                     doubles.add(Double.parseDouble(hospitalGeoData.getLatitude()));
                     Location location=new Location();
@@ -113,7 +112,7 @@ public class ConvertGeoData {
                                     if (strT.equals("&nbsp;") || strT.equals("V")) {
                                         strT = "是";
                                     }
-                                        System.out.println(strT);
+                                     //   System.out.println(strT);
                                     stringList.add(strT);
                                 }
                             }
